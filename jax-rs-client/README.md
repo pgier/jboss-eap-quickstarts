@@ -1,18 +1,19 @@
 jax-rs-client: External JAX-RS Client
 ======================
-Author: Blaine Mincey
-Level: Intermediate
-Technologies: JAX-RS
-Summary: Demonstrates the use an external JAX-RS RestEasy client which interacts with a JAX-RS Web service that uses CDI 1.0 and JAX-RS
-Prerequisites: helloworld-rs
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Blaine Mincey  
+Level: Intermediate  
+Technologies: JAX-RS  
+Summary: Demonstrates the use an external JAX-RS RestEasy client which interacts with a JAX-RS Web service that uses CDI 1.0 and JAX-RS  
+Prerequisites: helloworld-rs  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 What is it?
 -----------
 
 This example demonstrates an external JAX-RS RestEasy client which interacts with a JAX-RS Web service that uses *CDI 1.0* and *JAX-RS* 
-in *JBoss Enterprise Application Platform 6* or *JBoss AS 7*.  
+in Red Hat JBoss Enterprise Application Platform.
 
 This client "calls" the HelloWorld JAX-RS Web Service that was created in the `helloworld-rs` quickstart. See the **Prerequisite** section below for details on how to build and deploy the `helloworld-rs` quickstart.
 
@@ -20,9 +21,9 @@ This client "calls" the HelloWorld JAX-RS Web Service that was created in the `h
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later. 
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7. 
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
  
 Configure Maven

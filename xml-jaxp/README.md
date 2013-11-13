@@ -1,11 +1,12 @@
 xml-jaxp: Demonstrates How to Upload and Parse an XML File Using DOM or SAX
 ========================
-Author: Bartosz Baranowski
-Level: Intermediate
-Technologies: JAXP, SAX, DOM, Servlet
-Summary: Upload, validation and parsing of XML using SAX or DOM
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Bartosz Baranowski  
+Level: Intermediate  
+Technologies: JAXP, SAX, DOM, Servlet  
+Summary: Upload, validation and parsing of XML using SAX or DOM  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 What is it?
 -----------
@@ -17,9 +18,9 @@ It also shows how to use modules available in JBoss AS.
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later. 
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7. 
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
  
 Configure Maven
@@ -28,11 +29,11 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](../README.md#configure-maven) before testing the quickstarts.
 
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+Start the JBoss Server
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the server with the web profile:
+2. The following shows the command line to start the server:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh
         For Windows: JBOSS_HOME\bin\standalone.bat
@@ -47,7 +48,7 @@ _NOTE: The following build command assumes you have configured your Maven user s
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean install jboss-as:deploy
 
 4. This will deploy `target/jboss-xml-jaxp.war` to the running instance of the server.
 

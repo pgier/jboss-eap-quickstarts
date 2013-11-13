@@ -1,11 +1,12 @@
 ejb-asynchronous:  An application with an EJB with asynchronous methods to demonstrate how it works
 ======================================================
-Author: Wolf-Dieter Fink
-Level: Advanced
-Technologies: EJB 
-Summary: Demonstrates asynchronous EJB invocations.
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Wolf-Dieter Fink  
+Level: Advanced  
+Technologies: EJB  
+Summary: Demonstrates asynchronous EJB invocations.  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 What is it?
 -----------
@@ -23,9 +24,9 @@ The root `pom.xml` builds each of the submodules in the above order and deploys 
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later. 
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7. 
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
  
 Configure Maven
@@ -37,11 +38,11 @@ If you have not yet done so, you must [Configure Maven](../README.md#configure-m
 
 
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+Start the JBoss Server
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the server with the web profile:
+2. The following shows the command line to start the server:
 
          For Linux:   JBOSS_HOME/bin/standalone.sh
          For Windows: JBOSS_HOME\bin\standalone.bat

@@ -28,7 +28,7 @@
 <body>
     <div id="container">
         <div align="right" class="dualbrand">
-            <img src="resources/gfx/dualbrand_logo.png" />
+            <img src="resources/gfx/rhjb_eap_logo.png" />
         </div>
         <div id="content">
 
@@ -47,21 +47,12 @@
             <p>Learn more about JBoss Enterprise Application
                 Platform 6.</p>
             <ul>
-               <li><a href="https://access.redhat.com/knowledge/docs/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
+               <li><a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
                <li><a href="http://red.ht/jbeap-6">Product Information</a></li>
-            </ul>
-            <p>Learn more about JBoss AS 7.</p>
-            <ul>
-                <li><a
-                    href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">Getting
-                        Started Developing Applications Guide</a></li>
-                <li><a href="http://jboss.org/jbossas">Community
-                        Project Information</a></li>
             </ul>
 
         </div>
         <div id="footer">
-            <img src="resources/gfx/logo.png" alt="Weld logo" />
             <p>
                 This project was generated from a Maven archetype from
                 JBoss.<br />

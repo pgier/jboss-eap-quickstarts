@@ -1,12 +1,13 @@
 tasks-rs: JAX-RS, JPA quickstart
 ==============================
-Author: Mike Musgrove
-Level: Intermediate
-Technologies: JPA, JAX-RS
-Summary: Demonstrates how to use JAX-RS and JPA together
-Prerequisites: tasks
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Mike Musgrove  
+Level: Intermediate  
+Technologies: JPA, JAX-RS  
+Summary: Demonstrates how to use JAX-RS and JPA together  
+Prerequisites: tasks  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 What is it?
 -----------
@@ -19,13 +20,15 @@ This project demonstrates how to implement a JAX-RS service that uses JPA 2.0 pe
 
 The application manages User and Task JPA entities. A user represents an authenticated principal and is associated with zero or more Tasks. Service methods validate that there is an authenticated principal and the first time a principal is seen, a JPA User entity is created to correspond to the principal. JAX-RS annotated methods are provided for associating Tasks with this User and for listing and removing Tasks.
 
+_Note: This quickstart uses the H2 database included with JBoss EAP 6. It is a lightweight, relational example datasource that is used for examples only. It is not robust or scalable and should NOT be used in a production environment!_
+
 
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later.
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7.
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
 
 Configure Maven
@@ -41,11 +44,11 @@ Add an Application User
 This quickstart uses a secured management interface and requires that you create an application user to access the running application. Instructions to set up an Application user can be found here:  [Add an Application User](../README.md#add-an-application-user).  After following these instructions. you should have created a user called `quickstartUser` with password `quickstartPwd1!`, belonging to the `guest` role.
 
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+Start the JBoss Server
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the server with the web profile:
+2. The following shows the command line to start the server:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh
         For Windows: JBOSS_HOME\bin\standalone.bat
@@ -60,7 +63,7 @@ _NOTE: The following build command assumes you have configured your Maven user s
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean install jboss-as:deploy
 
 4. This will deploy `target/jboss-tasks-rs.war` to the running instance of the server.
 
@@ -118,9 +121,11 @@ To display the XML representation of the newly created resource, issue a *GET* r
 Using either of the above *GET* methods, you should see the following XML:
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <task id="1" ownerName="quickstartUser">
-        <title>task1</title>
-    </task>
+    <collection>
+        <task id="1" ownerName="quickstartUser">
+            <title>task1</title>
+        </task>
+    </collection>
 
 
 ### Display the XML Representation of all Tasks for a User

@@ -1,16 +1,17 @@
 helloworld-mbean: Helloworld Using MBean and CDI component
 ======================================================
-Author: Lagarde Jeremie
-Level: Intermediate
-Technologies: CDI, JMX and MBean
-Summary: Demonstrates the use of CDI 1.0 and MBean
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Lagarde Jeremie  
+Level: Intermediate  
+Technologies: CDI, JMX and MBean  
+Summary: Demonstrates the use of CDI 1.0 and MBean  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 What is it?
 -----------
 
-This example demonstrates the use of *CDI 1.0* and *MBean* in  *JBoss Enterprise Application Platform 6* or *JBoss AS 7*. The project also includes a set of Aquillian tests for mbeans.
+This example demonstrates the use of *CDI 1.0* and *MBean* in  Red Hat JBoss Enterprise Application Platform. The project also includes a set of Aquillian tests for mbeans.
 
 The example is composed of mbeans. They are as follows :
 
@@ -25,9 +26,9 @@ The example is composed of mbeans. They are as follows :
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later. 
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7. 
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
  
 Configure Maven
@@ -36,11 +37,11 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](../README.md#mavenconfiguration) before testing the quickstarts.
 
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+Start the JBoss Server
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the server with the web profile:
+2. The following shows the command line to start the server:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh
         For Windows: JBOSS_HOME\bin\standalone.bat
@@ -55,14 +56,14 @@ _NOTE: The following build command assumes you have configured your Maven user s
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean jboss-as:deploy
 
 4. This will deploy `helloworld-mbean-webapp\target\jboss-helloworld-mbean-webapp.war` and `helloworld-mbean-service\target\jboss-helloworld-mbean-service.sar` to the running instance of the server.
 
 
 Access and Test the MBeans  
 --------------------------
-This quickstart differs from the other quickstarts in that it uses 'JConsole' to access and test the quickstart rather than access an URL in the browser. If you do access http://localhost:8080/jboss-helloworld-mbean-webapp/, you will see a screen shot image of the JConsole application,
+This quickstart differs from the other quickstarts in that it uses 'JConsole' to access and test the quickstart rather than access an URL in the browser. If you do access <http://localhost:8080/jboss-helloworld-mbean-webapp/>, you will see a screen shot image of the JConsole application,
 
 The following sections describe how to use 'JConsole' to inspect and test the MBeans. 
 
@@ -88,8 +89,9 @@ You can use JConsole to inspect and use the MBeans :
 2. Expand `quickstarts` in the left column of the console.
 3. Under `quickstarts`, you see the 4 MBeans: `AnnotatedComponentHelloWorld`, `MXComponentHelloWorld`, `MXPojoHelloWorld`, and `SarMXPojoHelloWorld`
 4. Expand each MBean and choose: `Operations` --> `sayHello`.
-5. Type your name in the (p0 String ) input text box and click the sayHello button.
-6. You will see a popup Window displaying Hello `<your name>`!.
+5. Type your name in the (p0 String ) input text box and click the `sayHello` button.
+   * For the `AnnotatedComponentHelloWorld` and `MXComponentHelloWorld` examples, you will see a popup Window displaying `Hello <your name>!`.
+   * For the `MXPojoHelloWorld` and `SarMXPojoHelloWorld` examples, you will see a popup Window displaying `Welcome <your name>!`.
 
 
 Undeploy the Archive

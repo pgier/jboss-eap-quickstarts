@@ -1,11 +1,12 @@
 ejb-multi-server: EJB Communication Across Servers
 ======================================================
-Author: Wolf-Dieter Fink
-Level: Advanced
-Technologies: EJB, EAR
-Summary: EJB applications deployed to different servers that communicate via EJB remote calls
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Wolf-Dieter Fink  
+Level: Advanced  
+Technologies: EJB, EAR  
+Summary: EJB applications deployed to different servers that communicate via EJB remote calls  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 
 What is it?
@@ -31,76 +32,15 @@ The server configuration is done using CLI batch scripts located in the root of 
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later.
 
-The application this project produces is designed to be run on any of the following:
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
-        JBoss Enterprise Application Platform 6.0 
-        JBoss Enterprise Application Platform 6.1
-        JBoss AS 7.1
- 
 
 Configure Maven
 ---------------
 
 If you have not yet done so, you must [Configure Maven](../README.md#mavenconfiguration) before testing the quickstarts.
-
-
-Modify the CLI Scripts (if you are running JBoss Enterprise Application Platform 6.0 or JBoss AS 7.1 servers)
----------------------------
-
-The CLI scripts provided with this quickstart target JBoss Enterprise Application Platform 6.1. If you are running older versions of the server, JBoss Enterprise Application Platform 6.0 or JBoss AS 7.1, you must modify the scripts to work against these servers.
-
-**Modify the Install-Domain Script:**
-
-1. Open the `install-domain.cli` file located in the root of this quickstart folder for editing.
-2. Find the lines that contain the following text:
-
-        *** NOTE: If you are running JBoss
-3. Follow the _Note_ instructions to comment or uncomment the lines in the file.
-4. Save the file.
-
-**Modify the Remove-Configuration Script:**
-
-1. Open the `remove-configuration.cli` file located in the root of this quickstart folder for editing.
-2. Find the lines that contain the following text:
-
-        *** NOTE: If you are running JBoss
-3. Follow the _Note_ instructions to comment or uncomment the lines in the file.
-4. Save the file.
-
-
-
-Back Up the JBoss Enterprise Application Platform 6.x or JBoss AS 7.1 Server Configuration Files
------------------------------
-_NOTE - Before you begin:_
-
-1. If it is running, stop the JBoss Enterprise Application Platform 6.x server.
-2. Backup the following files, replacing JBOSS_HOME with the path to your server: 
-
-        JBOSS_HOME/domain/configuration/domain.xml
-        JBOSS_HOME/domain/configuration/host.xml
-        
-3. After you have completed testing and undeployed this quickstart, you can replace these files to restore the server to its original configuration.
-
-
-Start JBoss Enterprise Application Platform 6.x or JBoss AS 7.1 Server
----------------------------
-
-
-1. Unzip or install a fresh JBoss Enterprise Application Platform 6.x or JBoss AS 7.1 instance.
-2. Open a command line and navigate to the root of the server directory. Start the server using the following command:
-
-        bin/domain.sh    
-
-Configure the JBoss Enterprise Application Platform 6.x or JBoss AS 7.1 Server
----------------------------
-
-   Open a new command line, navigate to the root directory of this quickstart, and run the following command:
- 
-        JBOSS_HOME/bin/jboss-cli.sh --connect --file=install-domain.cli
-        
-   This script configures and starts multiple servers needed to run this quickstart. You should see "outcome" => "success" for all of the commands. 
 
 
 Add the Application Users
@@ -114,13 +54,45 @@ The following users must be added to the `ApplicationRealm` to run this quicksta
 | quickuser1 | ApplicationRealm | quick123+ | _leave blank for none_ |
 | quickuser2 | ApplicationRealm | quick+123 | _leave blank for none_ |
 
-If you are running JBoss Enterprise Application Platform 6.1, you can add the users using the following commands:
+Add the users using the following commands:
 
         bin/add-user.sh -a -u quickuser -p quick-123 --silent
         bin/add-user.sh -a -u quickuser1 -p quick123+ --silent
         bin/add-user.sh -a -u quickuser2 -p quick+123 --silent
 
-If you are running JBoss Enterprise Application Platform 6.0 or JBoss AS 7.1, you must use the add-user utility. For an example of how to use the add-user utility, see instructions in the root README file located here: [Add User](../README.md#addapplicationuser).
+If you prefer, you can use the add-user utility interactively. For an example of how to use the add-user utility, see instructions in the root README file located here: [Add User](../README.md#addapplicationuser).
+
+
+Back Up the JBoss EAP Server Configuration Files
+-----------------------------
+_NOTE - Before you begin:_
+
+1. If it is running, stop the JBoss EAP server.
+2. Backup the following files, replacing JBOSS_HOME with the path to your server: 
+
+        JBOSS_HOME/domain/configuration/domain.xml
+        JBOSS_HOME/domain/configuration/host.xml
+        
+3. After you have completed testing and undeployed this quickstart, you can replace these files to restore the server to its original configuration.
+
+
+Start JBoss EAP Server
+---------------------------
+
+
+1. Unzip or install a fresh JBoss EAP instance.
+2. Open a command line and navigate to the root of the server directory. Start the server using the following command:
+
+        bin/domain.sh    
+
+Configure the JBoss EAP Server
+---------------------------
+
+   Open a new command line, navigate to the root directory of this quickstart, and run the following command:
+ 
+        JBOSS_HOME/bin/jboss-cli.sh --connect --file=install-domain.cli
+        
+   This script configures and starts multiple servers needed to run this quickstart. You should see "outcome" => "success" for all of the commands. 
 
 
 Build and Deploy the Quickstart
@@ -147,8 +119,8 @@ _NOTE: If ERRORs appear in the server.log when the installing or deploying the q
 Access the Remote Client Application
 ---------------------
 
-This example will show how the EJB can be invoked from a remote standalone application.
-Also the client show how to invoke an EJB by using the scoped-context introduced with EAP6.1 to invoke the EJB without properties file by pass all necessary parameter to the InitialContext.
+This example shows how to invoke an EJB from a remote standalone application. 
+It also demonstrates how to invoke an EJB from a client using a scoped-context rather than a properties file containing the parameters required by the InitialContext. 
 
 1. Make sure that the deployments are successful as described above.
 2. Navigate to the quickstart `client/` subdirectory.
@@ -173,14 +145,9 @@ Also the client show how to invoke an EJB by using the scoped-context introduced
         [ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.2.1:java (default-cli) on project jboss-ejb-multi-server-client: An exception occured while executing the Java class. null: InvocationTargetException: JBAS014502: Invocation on method: public abstract java.lang.String org.jboss.as.quickstarts.ejb.multi.server.app.AppTwo.invokeSecured(java.lang.String) of bean: AppTwoBean is not allowed -> [Help 1]
 
     Update the user `quickuser1` and `quickuser2` and give them one of the Roles `AppTwo` or `Intern`. 
-    * If you are running JBoss EAP 6.1, you can issue the following commmands. 
 
               bin/add-user.sh -a -u quickuser1 -p quick123+ --silent --role Intern
               bin/add-user.sh -a -u quickuser2 -p quick+123 --silent --role AppTwo
-    * If you are not running JBoss EAP 6.1, you can modify the `JBOSS_HOME/standalone/configuration/application-roles.properties` file by adding the following 2 lines:
-        
-              quickstartuser1 Intern
-              quickstartuser2 AppTwo
 
     If the connection was established before changing the roles it might be necessary to restart the main server, or even the whole domain.
     After that the invocation will be successful. The log output of the `appTwo` servers shows which Role is applied to the user. The output of the client will show you a simple line with the information provided by the different applications:
@@ -197,9 +164,7 @@ Also the client show how to invoke an EJB by using the scoped-context introduced
 _NOTE:_
  
 * _If exec is called multiple times, the invocation for `app1` might use `app-oneA` and `app-oneB` node due to cluster loadbalancing._
-* _If you use a version from JBoss Enterprise Platform 6.1, a new feature will deny the invocation of unsecured methods of `appOne`/`appTwo` since security is enabled but the method does not include @Roles. You need to set 'default-missing-method-permissions-deny-access = false' for the `ejb3` subsystem within the domain profile "ha" and "default" to allow the method invocation. See the install-domain.cli script._
-* _For JBoss Enterprise Application Platform 6.0 and AS 7.1.x, the scoped-client-context is not implemented. Therefore you will not see a difference between step 3 and step 4, the properties of the InitialContext will be ignored._
-* _For JBoss Enterprise Application Platform 6.0 and AS 7.1.x, the client library must not be changed for this test. But if additional tests are added or a newer server version is used, you might update the property `<jboss.client.bom.version>7.1.1.Final</jboss.client.bom.version>` in the root `pom.xml` to an appropriate version._
+* _A new feature introduced in JBoss EAP 6.1 or later will deny the invocation of unsecured methods of `appOne`/`appTwo` since security is enabled but the method does not include @Roles. You need to set 'default-missing-method-permissions-deny-access = false' for the `ejb3` subsystem within the domain profile "ha" and "default" to allow the method invocation. See the install-domain.cli script._
 
 
 Access the JSF application inside the main-application
@@ -208,15 +173,13 @@ Access the JSF application inside the main-application
 The JSF example shows different annotations to inject the EJB. Also how to handle the annotation if different beans implement the same interface and therefore the container is not able to decide which bean needs to be injected without additional informations.
 
 1. Make sure that the deployments are successful as described above.
-2. Use a browser to access the JSF application at the following URL: <http://localhost:8080/multi-server-MainApp/>
+2. Use a browser to access the JSF application at the following URL: <http://localhost:8080/jboss-ejb-multi-server-app-main-web/>
 3. Insert a message in the Text input and invoke the different methods. The result is shown in the browser.
 4. See server logfiles and find your given message logged as INFO.
 
 _NOTE :_
 
 * _If you try to invoke `MainEjbClient34App` you need to update the user `quickuser1` and `quickuser2` and give them one of the Roles `AppTwo` or `Intern`._
-* _Remember that the scoped-client will be implemented at first with EAP6.1 and will not work before._
-
 
 Access the Servlet application deployed as a WAR inside a minimal server
 ---------------------
@@ -224,10 +187,10 @@ Access the Servlet application deployed as a WAR inside a minimal server
 An example how to access EJB's from a separate instance which only contains a web application.
 
 1. Make sure that the deployments are successful as described above.
-2. Use a browser to access the Servlet at the following URL: <http://localhost:8380/appweb/>
+2. Use a browser to access the Servlet at the following URL: <http://localhost:8380/jboss-ejb-multi-server-app-web/>
 3. The Servlet will invoke the remote EJBs directly and show the results, compare that the invocation is successful
 
-_NOTE : If a version from JBoss EAP6.1 is used, a new feature will deny the invocation of unsecured methods of `appOne`/`appTwo` since security is enabled but the method does not include @Roles. You need to set 'default-missing-method-permissions-deny-access = false' for the `ejb3` subsystem within the domain profile "ha" and "default" to allow the method invocation._
+_NOTE : A new feature in EAP 6.1 or later will deny the invocation of unsecured methods of `appOne`/`appTwo` since security is enabled but the method does not include @Roles. You need to set 'default-missing-method-permissions-deny-access = false' for the `ejb3` subsystem within the domain profile "ha" and "default" to allow the method invocation.  See the install-domain.cli script._
 
 
 Undeploy the Archives
@@ -246,18 +209,18 @@ Remove the Server Domain Configuration
 You can remove the domain configuration by manually restoring the back-up copies the configuration files or by running the JBoss CLI Script. 
 
 ### Remove the Server Domain Configuration Manually           
-1. If it is running, stop the JBoss Enterprise Application Platform 6.x or JBoss AS 7.1 server.
+1. If it is running, stop the JBoss EAP server.
 2. Restore the `JBOSS_HOME/domain/configuration/domain.xml` and `JBOSS_HOME/domain/configuration/host.xml` files with the back-up copies of the files. Be sure to replace JBOSS_HOME with the path to your server.
 
 ### Remove the Security Domain Configuration by Running the JBoss CLI Script
 
 _Note: This script returns the server to a default configuration and the result may not match the server configuration prior to testing this quickstart. If you were not running with the default configuration before testing this quickstart, you should follow the intructions above to manually restore the configuration to its previous state._
 
-1. Start the JBoss Enterprise Application Platform 6.x Server by typing the following: 
+1. Start the JBoss EAP server by typing the following: 
 
         For Linux:   JBOSS_HOME/bin/domain.sh
         For Windows: JBOSS_HOME\bin\domain.bat
-2. Open a new command line, navigate to the root directory of this quickstart, and run the following command, replacing JBOSS_HOME with the path to your server.  Again, if you are running older versions of the server, JBoss Enterprise Application Platform 6.0 or JBoss AS 7.1, you must modify the scripts to work against these servers.
+2. Open a new command line, navigate to the root directory of this quickstart, and run the following command, replacing JBOSS_HOME with the path to your server.
 
         JBOSS_HOME/bin/jboss-cli.sh --connect --file=remove-configuration.cli 
 This script removes the server configuration that was done by the `install-domain.cli` script. You should see the following result following the script commands:

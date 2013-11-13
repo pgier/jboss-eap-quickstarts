@@ -46,10 +46,11 @@
         <!-- JBoss dependency versions -->
         
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.eap>6.2.0-build-4</version.jboss.bom.eap>
+        <version.jboss.bom.eap>6.2.0-build-SNAPSHOT</version.jboss.bom.eap>
 
         <!-- Other dependency versions -->
         <version.org.apache.httpcomponents>4.1.4</version.org.apache.httpcomponents>
+        <version.commons.logging>1.1.1</version.commons.logging>
 
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
@@ -58,16 +59,32 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
+
+        <!-- Ignore test failure because it requires additional setup -->
+        <maven.test.failure.ignore>true</maven.test.failure.ignore>
+
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.jboss.bom.eap</groupId>
+                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+                <version>${version.jboss.bom.eap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-resteasy</artifactId>
                 <version>${version.jboss.bom.eap}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${version.commons.logging}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -86,6 +103,10 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
             <version>${version.org.apache.httpcomponents}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
         </dependency>
     </dependencies>
     <build>

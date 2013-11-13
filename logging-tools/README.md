@@ -1,11 +1,12 @@
 jboss-logging-tools: Internationalization and Localisation with JBoss Logging Tools
 ======================
-Author: Darrin Mison
-Level: Beginner
-Technologies: JBoss Logging Tools
-Summary: Demonstrates the use of JBoss Logging Tools to create internationalized loggers, exceptions, and generic messages
-Target Product: EAP
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>
+Author: Darrin Mison  
+Level: Beginner  
+Technologies: JBoss Logging Tools  
+Summary: Demonstrates the use of JBoss Logging Tools to create internationalized loggers, exceptions, and generic messages  
+Target Product: EAP  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
 
 What is it?
 ------------
@@ -20,9 +21,9 @@ Instructions are included below for starting JBoss AS7/EAP6 with a different loc
 System requirements
 -------------------
 
-All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3.0 or better.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform 6.1 or later. 
 
-The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7. 
+All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
 
 Configure Maven
@@ -37,7 +38,7 @@ Configure the JBoss Server to Start With a Different Locale (Optional)
 To start the JBoss server with a different locale than the system default:
 
 1. Make a backup copy of the `JBOSS_HOME/bin/standalone.conf` file.
-2. Edit the file and append commands to set the JVM parameters for the required country and language.  
+2. Edit the file and append commands to set the JVM parameters for the required country and language.
    Eg. Germany and German, `DE` and `de`.
     
         JAVA_OPTS="$JAVA_OPTS -Duser.country=DE"
@@ -49,11 +50,11 @@ To start the JBoss server with a different locale than the system default:
    Refer to <http://java.sun.com/javase/technologies/core/basic/intl/faq.jsp#set-default-locale>
       
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7 with the Web Profile
+Start the JBoss Server
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the server with the web profile:
+2. The following shows the command line to start the server:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh
         For Windows: JBOSS_HOME\bin\standalone.bat
@@ -69,7 +70,7 @@ _NOTE: The following build command assumes you have configured your Maven user s
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean install jboss-as:deploy
 
 4. This will deploy `target/jboss-logging-tools.war` to the running instance of the server.
 
